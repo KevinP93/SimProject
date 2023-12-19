@@ -1,30 +1,52 @@
 package fr.simproject.spring.model;
 
-import java.util.Date;
 
+
+import ch.qos.logback.core.status.Status;
+
+import java.util.Date;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "simcards")
 public class SimCard {
 
-    enum Status {
-        ACTIVATED,
-        DESACTIVATED
+    public SimCard() {
+        // Constructeur par défaut sans arguments
     }
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ICCID")
     private String iccId;
+    @Column(name = "MSISDN")
     private String msisdn;
+    @Column(name = "PINCode")
     private String pinCode;
+    @Column(name = "PUKCode")
     private String pukCode;
+    @Column(name = "Tag")
     private String tag;
+
     private String accessPointName;
+    @Column(name = "IPAddr")
     private String ipAddress;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Status")
+    private Status status;
+
     private Date creationDate;
 
-    public SimCard(){
 
+
+    public enum Status {
+        ACTIVATED,
+        DEACTIVATED
     }
-    public SimCard(long id, String iccId, String msisdn, String pinCode, String pukCode, String tag, String accessPointName, String ipAddress, Date creationDate) {
-       super();
-        this.id = id;
+
+    // Constructeur avec des paramètres
+    public SimCard(String iccId, String msisdn, String pinCode, String pukCode, String tag, String accessPointName, String ipAddress, Date creationDate) {
         this.iccId = iccId;
         this.msisdn = msisdn;
         this.pinCode = pinCode;
@@ -33,14 +55,6 @@ public class SimCard {
         this.accessPointName = accessPointName;
         this.ipAddress = ipAddress;
         this.creationDate = creationDate;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getIccId() {
@@ -105,5 +119,13 @@ public class SimCard {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
