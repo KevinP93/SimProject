@@ -1,0 +1,11 @@
+<!-- detail-popup.component.html -->
+<div class="popup-container">
+    <div class="popup-content">
+      <!-- Contenu de la popup (à personnaliser en fonction de vos besoins) -->
+      <p>Détails de la carte SIM</p>
+      <p>ID: {{ data?.iccId }}</p>
+      <p>Numéro de Série: {{ data?.msisdn }}</p>
+      <!-- Ajoutez d'autres détails selon vos besoins -->
+      <button (click)="closePopup()">Fermer</button>
+    </div>
+  </div>

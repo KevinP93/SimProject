@@ -1,0 +1,246 @@
+/* Importing Google Font - Roboto */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+/* General Styling */
+
+* {
+  /* Getting rid of the padding */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #effafc;
+  color: #203546;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #203546;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+p {
+  padding: 10px 0px;
+}
+
+img {
+  width: 100%;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #11232f;
+  opacity: 0.9;
+  color: #effafc;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0px;
+  padding: 0;
+}
+
+#navbar a {
+  color: #effafc;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+
+#navbar a:hover {
+  border-bottom: #1d66e4 2px solid;
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar .logo {
+  font-weight: 400;
+}
+
+.hero {
+  background: url(../img/phantomeye-hero-austin-tx.jpg) no-repeat center
+    center/cover;
+  height: 100vh;
+  position: relative;
+  color: #effafc;
+}
+
+.hero .content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.hero .content h1 {
+  font-size: 56px;
+}
+
+.hero .content p {
+  font-size: 23px;
+  max-width: 600px;
+}
+
+.hero::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero * {
+  z-index: 10;
+}
+
+#about {
+  padding: 50px;
+}
+#areas,
+#blog,
+#contact {
+  padding: 50px 0;
+}
+.areas img:hover {
+  opacity: 0.7;
+}
+
+.section-header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 40px;
+  font-weight: 100;
+}
+
+.section-header h4 {
+  font-weight: 200;
+}
+
+.section-header p {
+  padding-bottom: 50px;
+}
+
+/* Flex Grid Class */
+
+.flex-grid .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-grid .column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0px 4px;
+}
+
+.our-team-img {
+  max-width: 70%;
+  box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact section */
+
+.callback-form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.callback-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.callback-form .form-wrapper {
+  margin-bottom: 10px;
+}
+
+.callback-form input {
+  width: 50%;
+  padding: 5px 10px;
+  height: 50px;
+}
+
+.callback-form .button-blue {
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+}
+
+.callback-form input:focus {
+  outline-color: #1d66e4;
+}
+
+/* Footer section */
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.social-container i {
+  padding: 10px 10px;
+  background-color: #1d66e4;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/* Mobile adoptation */
+
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    height: 120px;
+    padding: 20px;
+    opacity: 1;
+    z-index: 20;
+  }
+
+  #navbar a {
+    padding: 10px;
+  }
+
+  .flex-items-about {
+    flex-direction: column;
+  }
+
+  .flex-columns .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .callback-form input {
+    width: 100%;
+  }
+}
