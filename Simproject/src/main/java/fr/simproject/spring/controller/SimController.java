@@ -20,12 +20,12 @@ public class SimController {
    }
 
     @RequestMapping("/simCard/{id}")
-    public SimCard getSimCardById(@PathVariable(name = "id") String id){
+    public SimCard getSimCardById(@PathVariable(name = "id") long id){
         return simCardService.getSimCardById(id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "simCard/{id}")
-    public void deleteSimCard(@PathVariable(name = "id") String id){
+    public void deleteSimCard(@PathVariable(name = "id") Long id){
         simCardService.deleteSimCard(id);
     }
 
@@ -35,7 +35,7 @@ public class SimController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "simCard/{id}")
-    public void updateSimCard(@RequestBody  SimCard simCard, @PathVariable(name = "id") String id){
+    public void updateSimCard(@RequestBody  SimCard simCard, @PathVariable(name = "id") Long id){
         simCardService.updateSimCard(simCard,id);
     }
 }

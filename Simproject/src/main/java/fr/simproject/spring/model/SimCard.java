@@ -2,8 +2,6 @@ package fr.simproject.spring.model;
 
 
 
-import ch.qos.logback.core.status.Status;
-
 import java.util.Date;
 import javax.persistence.*;
 
@@ -16,9 +14,9 @@ public class SimCard {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ICCID")
-    private String iccId;
+    private Long iccId;
     @Column(name = "MSISDN")
     private String msisdn;
     @Column(name = "PINCode")
@@ -47,7 +45,7 @@ public class SimCard {
 
     // Constructeur avec des paramètres
     public SimCard(String iccId, String msisdn, String pinCode, String pukCode, String tag, String accessPointName, String ipAddress, Date creationDate) {
-        this.iccId = iccId;
+        this.iccId = Long.valueOf(iccId);
         this.msisdn = msisdn;
         this.pinCode = pinCode;
         this.pukCode = pukCode;
@@ -57,11 +55,11 @@ public class SimCard {
         this.creationDate = creationDate;
     }
 
-    public String getIccId() {
+    public Long getIccId() {
         return iccId;
     }
 
-    public void setIccId(String iccid) {
+    public void setIccId(Long iccid) {
         this.iccId = iccid;
     }
 

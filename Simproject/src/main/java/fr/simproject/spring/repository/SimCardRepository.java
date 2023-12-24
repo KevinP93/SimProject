@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SimCardRepository extends JpaRepository<SimCard,String> {
+public interface SimCardRepository extends JpaRepository<SimCard,Long> {
 
 }

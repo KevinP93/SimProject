@@ -24,11 +24,11 @@ public class SimCardService {
         return simCards;
     }
 
-    public SimCard getSimCardById(String id) {
+    public SimCard getSimCardById(Long id) {
         return simCardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("La carte SIM avec l'ID " + id + " n'existe pas."));
     }
 
-    public void deleteSimCard(String id) {
+    public void deleteSimCard(Long id) {
         // On vérifie d'abord si la carte SIM existe
         if (simCardRepository.existsById(id)) {
             simCardRepository.deleteById(id);
@@ -41,7 +41,7 @@ public class SimCardService {
         simCardRepository.save(simCard);
     }
 
-    public void updateSimCard(SimCard simCard, String id) {
+    public void updateSimCard(SimCard simCard, Long id) {
         // On vérifie d'abord si la carte SIM existe
         if (simCardRepository.existsById(id)) {
             // Maj de la carte SIM
