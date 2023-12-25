@@ -1,0 +1,42 @@
+<div class="popup-container">
+  <div class="popup-content edit-popup">
+    <h2>Modifier les données</h2>
+    <form (submit)="saveChanges()">
+      <!-- Champs éditables -->
+      <label>ID:</label>
+      <input [(ngModel)]="data.iccId" name="iccId" readonly class="readonly-input">
+  
+      <label>Numéro:</label>
+      <input [(ngModel)]="data.msisdn" name="msisdn" appDigitsOnly required maxlength="10" class="center-input">
+
+      <label>Code PIN:</label>
+      <input [(ngModel)]="data.pinCode" name="pinCode" appDigitsOnly required maxlength="4" class="center-input">
+
+      <label>Code PUK:</label>
+      <input [(ngModel)]="data.pukCode" name="pukCode" appDigitsOnly required maxlength="8" class="center-input">
+
+      <label>Tag:</label>
+      <input [(ngModel)]="data.tag" name="tag"  required maxlength="7" class="center-input">
+  
+      <label>Nom du point d'accès:</label>
+      <input [(ngModel)]="data.accessPointName" name="accessPointName" required maxlength="7" class="center-input">
+
+      <label>Adresse IP:</label>
+      <input [(ngModel)]="data.ipAddress" name="ipAddress"  class="center-input">
+
+      <label>Status :</label>
+      <select [(ngModel)]="data.status" name="status" class="center-input">
+        <option value="ACTIVATED">ACTIVATED</option>
+        <option value="DEACTIVATED">DEACTIVATED</option>
+      </select>
+
+      <label>Date de création:</label>
+      <input [value]="data.creationDate | date:'dd-MM-yyyy'" readonly class="readonly-input">
+
+      <div class="buttons">
+        <button type="submit">Enregistrer</button>
+        <button type="button" (click)="cancel()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

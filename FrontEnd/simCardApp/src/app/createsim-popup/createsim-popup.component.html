@@ -1,0 +1,72 @@
+<div class="popup-container">
+    <div class="popup-content createsim-popup">
+        <h2>Création d'une nouvelle carte SIM</h2>
+        <form [formGroup]="simCardForm" (submit)="createSimCard()">
+            <!-- Champs de création -->
+           <!-- <label>Numéro:</label>
+            <input [(ngModel)]="msisdn" name="msisdn" appDigitsOnly required maxlength="10" class="center-input">-->
+            <label>Numéro:</label>
+            <input
+              appDigitsOnly
+              required
+              maxlength="10"
+              class="center-input"
+              formControlName="msisdn"
+            />
+            <div *ngIf="simCardForm.get('msisdn')?.hasError('msisdnTaken') && simCardForm.get('msisdn')?.dirty" class="error-message">
+              Ce numéro est déjà existant.
+            </div>
+            
+            <label>Code PIN:</label>
+            <input [(ngModel)]="pinCode" name="pinCode" appDigitsOnly required maxlength="4" class="center-input">
+    
+            <label>Code PUK:</label>
+            <input [(ngModel)]="pukCode" name="pukCode" appDigitsOnly required maxlength="8" class="center-input">
+    
+            <label>Tag:</label>
+            <input [(ngModel)]="tag" name="tag" required maxlength="7" class="center-input">
+    
+            <label>Nom du point d'accès:</label>
+            <input [(ngModel)]="accessPointName" name="accessPointName" required pattern="^APN\d{4}$" class="center-input">
+    
+            <!-- <label>Adresse IP:</label>
+            <input [(ngModel)]="ipAddress" name="ipAddress" required class="center-input">-->
+            <label>Adresse IP:</label>
+            <input
+              required
+              class="center-input"
+              formControlName="ipAddress"
+            />
+            <div *ngIf="simCardForm.get('ipAddress')?.hasError('required')" class="error-message">
+              L'adresse IP est requise.
+            </div>
+            <div *ngIf="simCardForm.get('ipAddress')?.hasError('ipAddressInvalidFormat')" class="error-message">
+              Format d'adresse IP invalide.
+            </div>
+            <div *ngIf="simCardForm.get('ipAddress')?.hasError('ipAddressTaken') && simCardForm.get('ipAddress')?.dirty" class="error-message">
+              L'adresse IP est déjà utilisée.
+            </div>
+    
+            <label>Statut:</label>
+            <select [(ngModel)]="status" name="status" class="center-input">
+                <option value="ACTIVATED">ACTIVATED</option>
+                <option value="DEACTIVATED">DEACTIVATED</option>
+            </select>
+    
+            <label>Date de création:</label>
+            <input [(ngModel)]="creationDate" name="creationDate" readonly class="readonly-input">
+    
+            <div *ngIf="!simCardForm.valid" class="error-message">
+                Veuillez remplir tous les champs correctement.
+            </div>
+    
+            <div class="buttons">
+                <button type="submit" [disabled]="!simCardForm.valid"
+                 [class.invalid-cursor]="!simCardForm.valid">
+                Créer
+                </button>
+                <button type="button" (click)="cancel()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

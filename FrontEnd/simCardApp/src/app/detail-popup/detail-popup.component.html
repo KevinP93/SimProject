@@ -1,11 +1,19 @@
-<!-- detail-popup.component.html -->
-<div class="popup-container">
-    <div class="popup-content">
-      <!-- Contenu de la popup (à personnaliser en fonction de vos besoins) -->
-      <p>Détails de la carte SIM</p>
-      <p>ID: {{ data?.iccId }}</p>
-      <p>Numéro de Série: {{ data?.msisdn }}</p>
-      <!-- Ajoutez d'autres détails selon vos besoins -->
-      <button (click)="closePopup()">Fermer</button>
-    </div>
+<div class="popup-content">
+  <!-- Contenu de la popup -->
+  <div class="card-sim">
+      <div class="card-sim-chip"></div>
+      <div class="card-sim-contact"></div>
+      <div class="card-sim-cut"></div>
   </div>
+  <h2>Détails de la carte SIM</h2>
+  <p><span class="label">ID:</span> {{ data?.iccId }}</p>
+  <p><span class="label">Numéro:</span> {{ data?.msisdn }}</p>
+  <p><span class="label">Code PIN:</span> {{ data?.pinCode }}</p>
+  <p><span class="label">Code PUK: </span>{{ data?.pukCode }}</p>
+  <p><span class="label">Tag: </span>{{ data?.tag }}</p>
+  <p><span class="label">Nom du point d'accès:</span> {{ data?.accessPointName }}</p>
+  <p><span class="label">Adresse IP:</span> {{ data?.ipAddress }}</p>
+  <p><span class="label">Status:</span> {{ data?.status }}</p>
+  <p><span class="label">Date de création: </span>{{ data?.creationDate | date:'dd-MM-yyyy' }}</p>
+  <button class="close-button" (click)="closePopup()">Fermer</button>
+</div>

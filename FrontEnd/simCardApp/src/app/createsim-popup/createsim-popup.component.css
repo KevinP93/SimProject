@@ -1,0 +1,107 @@
+.popup-content.createsim-popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.popup-content.createsim-popup form {
+    margin-top: 20px;
+}
+
+.popup-content.createsim-popup label {
+    font-weight: bold;
+}
+
+.popup-content.createsim-popup input,
+.popup-content.createsim-popup select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.popup-content.createsim-popup .buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.popup-content.createsim-popup button {
+    background: #ff6f6f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+}
+
+.popup-content.createsim-popup button:hover {
+    background: #ff4949;
+}
+
+.popup-content.createsim-popup button:last-child {
+    margin-right: 0;
+}
+
+.popup-content.createsim-popup h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.readonly-input {
+    text-align: center;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+/* Styles communs pour les champs de saisie */
+.center-input {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styles pour la liste déroulante (select) */
+.center-input select {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+}
+
+.center-input select:focus {
+    text-align: center;
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Style pour les champs en erreur */
+.error-input {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+  .popup-content.createsim-popup .invalid-cursor {
+    cursor: not-allowed;
+    background: #ccc;
+    color: #999;
+    pointer-events: none; /* Désactive les événements de souris */
+}

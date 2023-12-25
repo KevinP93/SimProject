@@ -1,0 +1,49 @@
+/* Ajoutez ces styles à votre fichier CSS */
+
+.popup-content.edit-popup {
+    /* Styles existants pour la pop-up d'édition */
+  }
+  
+  /* Ajoutez ces styles pour la pop-up de suppression */
+  .popup-content.delete-popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  .popup-content.delete-popup .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .popup-content.delete-popup button {
+    background: #ff6f6f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .popup-content.delete-popup button:hover {
+    background: #ff4949;
+  }
+  
+  .popup-content.delete-popup button:last-child {
+    margin-right: 0;
+  }
+  
+  .popup-content.delete-popup h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles spécifiques pour les boutons de la pop-up de suppression */
+  .popup-content.delete-popup .delete-popup-button {
+    /* Ajoutez des styles spécifiques aux boutons de la pop-up de suppression */
+  }

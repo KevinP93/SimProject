@@ -9,7 +9,8 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #0f1b25;
+    color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
@@ -57,3 +58,16 @@ body {
   .pointer{
     cursor: pointer;
   }
+
+  .align-icons {
+    display: flex;
+    align-items: center;
+}
+
+.align-icons .pointer {
+    margin-right: 10px;
+}
+
+
+
+

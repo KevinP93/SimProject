@@ -1,0 +1,12 @@
+
+<div class="popup-content delete-popup">
+    <h2 mat-dialog-title>Confirmation</h2>
+    <div mat-dialog-content>
+      {{ data.message }}
+    </div>
+    <div mat-dialog-actions class="buttons">
+      <button mat-button (click)="onNoClick()" class="delete-popup-button" type="button">Non</button>
+      <button mat-button color="warn" (click)="onYesClick()" class="delete-popup-button" type="submit">Oui</button>
+    </div>
+  </div>
+  
