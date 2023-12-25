@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SimCardRepository extends JpaRepository<SimCard,Long> {
 
+    boolean existsByMsisdn(String msisdn);
+
+    boolean existsByIpAddress(String ipAddress);
 }

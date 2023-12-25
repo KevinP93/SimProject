@@ -38,4 +38,15 @@ public class SimController {
     public void updateSimCard(@RequestBody  SimCard simCard, @PathVariable(name = "id") Long id){
         simCardService.updateSimCard(simCard,id);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "simCards/checkMsisdn/{msisdn}")
+    public boolean checkMsisdnAvailability(@PathVariable(name = "msisdn") String msisdn) {
+        return simCardService.isMsisdnAvailable(msisdn);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "simCards/checkIpAddress/{ipAddress}")
+    public boolean checkIpAddressAvailability(@PathVariable String ipAddress) {
+        return simCardService.isIpAddressAvailable(ipAddress);
+    }
+
 }

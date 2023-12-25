@@ -52,4 +52,13 @@ public class SimCardService {
             throw new IllegalArgumentException("La carte SIM avec l'ID " + id + " n'existe pas.");
         }
     }
+
+    public boolean isMsisdnAvailable(String msisdn) {
+        return !simCardRepository.existsByMsisdn(msisdn);
+    }
+
+    public boolean isIpAddressAvailable(String ipAddress) {
+        return !simCardRepository.existsByIpAddress(ipAddress);
+    }
+
 }
