@@ -58,7 +58,7 @@ export class CreateSimPopupComponent implements OnInit {
           if (!isAvailable) {
             msisdnControl?.setErrors({ msisdnTaken: true });
           } else {
-            // Remettez à zéro les erreurs si le MSISDN est disponible
+            // On remet à zéro les erreurs si le MSISDN est disponible
             msisdnControl?.setErrors(null);
           }
         },
@@ -72,7 +72,7 @@ export class CreateSimPopupComponent implements OnInit {
   validateIpAddress(control: AbstractControl): Observable<{ [key: string]: boolean } | null> {
     const ipAddress = control.value as string;
   
-    // Vérifiez d'abord si l'adresse IP est au bon format
+    // Format de l'adresse iP
     const ipPattern = /^(\d{1,3}\.){3}\d{1,3}$/;
     const isValidFormat = ipPattern.test(ipAddress);
   
@@ -118,7 +118,7 @@ export class CreateSimPopupComponent implements OnInit {
                 },
                 (error) => {
                   console.error('Erreur lors de la création :', error);
-                  // Gérer les erreurs liées à la création de la carte SIM ici
+                  
                 }
               );
             } else {
@@ -127,7 +127,7 @@ export class CreateSimPopupComponent implements OnInit {
           },
           (error) => {
             console.error('Erreur lors de la vérification du MSISDN :', error);
-            // Gérer les erreurs liées à la vérification du MSISDN ici
+            
             msisdnControl.setErrors({ msisdnInvalid: true });
           }
         );
@@ -137,10 +137,10 @@ export class CreateSimPopupComponent implements OnInit {
     } else {
       console.error('Formulaire invalide, veuillez remplir tous les champs correctement.');
 
-      // Affichez les erreurs de validation dans la console
+      
       console.log('Erreurs de validation du formulaire:', this.simCardForm.errors);
 
-      // Affichez les erreurs spécifiques pour chaque champ dans la console
+     
       Object.keys(this.simCardForm.controls).forEach((key) => {
         console.log(`Erreurs pour le champ ${key}:`, this.simCardForm.get(key)?.errors);
       });

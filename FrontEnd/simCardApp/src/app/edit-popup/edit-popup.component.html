@@ -1,13 +1,16 @@
 <div class="popup-container">
   <div class="popup-content edit-popup">
     <h2>Modifier les données</h2>
-    <form (submit)="saveChanges()">
+    <form [formGroup]="editForm" (submit)="saveChanges()">
       <!-- Champs éditables -->
       <label>ID:</label>
       <input [(ngModel)]="data.iccId" name="iccId" readonly class="readonly-input">
   
       <label>Numéro:</label>
       <input [(ngModel)]="data.msisdn" name="msisdn" appDigitsOnly required maxlength="10" class="center-input">
+      <div *ngIf="editForm.get('msisdn')?.hasError('msisdnTaken') && editForm.get('msisdn')?.dirty" class="error-message">
+        Ce numéro est déjà existant.
+      </div>
 
       <label>Code PIN:</label>
       <input [(ngModel)]="data.pinCode" name="pinCode" appDigitsOnly required maxlength="4" class="center-input">
@@ -19,10 +22,23 @@
       <input [(ngModel)]="data.tag" name="tag"  required maxlength="7" class="center-input">
   
       <label>Nom du point d'accès:</label>
-      <input [(ngModel)]="data.accessPointName" name="accessPointName" required maxlength="7" class="center-input">
+      <input [(ngModel)]="data.accessPointName" name="accessPointName" class="center-input">
+
+      <div *ngIf="editForm.get('accessPointName')?.hasError('pattern') && editForm.get('accessPointName')?.dirty" class="error-message">
+        Le nom du point d'accès doit suivre le format spécifié.
+      </div>
 
       <label>Adresse IP:</label>
-      <input [(ngModel)]="data.ipAddress" name="ipAddress"  class="center-input">
+      <input [(ngModel)]="data.ipAddress" name="ipAddress" class="center-input">
+
+      <div *ngIf="editForm.get('ipAddress')?.hasError('ipAddressInvalidFormat') && (editForm.get('ipAddress')?.dirty )" class="error-message">
+        Format d'adresse IP invalide.
+      </div>
+
+      <div *ngIf="editForm.get('ipAddress')?.hasError('ipAddressTaken') && (editForm.get('ipAddress')?.dirty )" class="error-message">
+        L'adresse IP est déjà utilisée.
+      </div>
+
 
       <label>Status :</label>
       <select [(ngModel)]="data.status" name="status" class="center-input">
@@ -34,7 +50,7 @@
       <input [value]="data.creationDate | date:'dd-MM-yyyy'" readonly class="readonly-input">
 
       <div class="buttons">
-        <button type="submit">Enregistrer</button>
+        <button type="submit" [disabled]="!editForm.valid">Enregistrer</button>
         <button type="button" (click)="cancel()">Annuler</button>
       </div>
     </form>

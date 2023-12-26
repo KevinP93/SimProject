@@ -54,7 +54,7 @@ export class PopupService {
   }
 
   closeDetailPopup() {
-    // Vérifiez si la popup est ouverte avant de la fermer
+    // On verifie si la popup est ouverte avant de la fermer
     if (this.dialogRef && this.dialogRef.componentInstance) {
       this.dialogRef.close();
     }

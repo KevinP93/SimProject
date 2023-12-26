@@ -10,7 +10,6 @@ export class DigitsOnlyDirective {
   @HostListener('input', ['$event'])
   onInput(event: any): void {
     const input = event.target;
-    const value = input.value.replace(/[^0-9]/g, ''); // Remplace tout sauf les chiffres
-    input.value = value;
+    const value = input.value.replace(/[^0-9]/g, ''); 
   }
 }

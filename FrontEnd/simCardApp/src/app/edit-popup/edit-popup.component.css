@@ -1,102 +1,76 @@
+/* edit-popup.component.css */
+
 .popup-content.edit-popup {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-  
-  .popup-content.edit-popup form {
-    margin-top: 20px;
-  }
-  
-  .popup-content.edit-popup label {
-    font-weight: bold;
-  }
-  
-  .popup-content.edit-popup input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-  }
-  
-  .popup-content.edit-popup .buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .popup-content.edit-popup button {
-    background: #ff6f6f;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-right: 10px;
-    transition: background 0.3s ease;
-  }
-  
-  .popup-content.edit-popup button:hover {
-    background: #ff4949;
-  }
-  
-  .popup-content.edit-popup button:last-child {
-    margin-right: 0;
-  }
-  
-  .popup-content.edit-popup h2 {
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px; /* Ajustez la largeur selon vos besoins */
+}
 
-  
+.popup-content.edit-popup form {
+  margin-top: 20px;
+}
 
-  .readonly-input {
-    text-align: center;
-    background-color: #f0f0f0; 
-    cursor: not-allowed; 
-  }
+.popup-content.edit-popup label {
+  font-weight: bold;
+  display: block; /* Placez chaque libellé sur une nouvelle ligne */
+  margin-top: 10px; /* Ajoutez un espacement en haut de chaque libellé */
+}
 
-  /* Ajoutez ces styles à votre fichier CSS */
+.popup-content.edit-popup input, 
+.popup-content.edit-popup select {
+  width: calc(100% - 16px); /* Ajustez la largeur en tenant compte de la marge */
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  display: inline-block; /* Alignez les champs côte à côte */
+}
+
+.popup-content.edit-popup .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.popup-content.edit-popup button {
+  background: #ff6f6f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+}
+
+.popup-content.edit-popup button:hover {
+  background: #ff4949;
+}
+
+.popup-content.edit-popup button:last-child {
+  margin-right: 0;
+}
+
+.popup-content.edit-popup h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.readonly-input {
+  text-align: center;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
 
 .center-input {
   text-align: center;
-  width: 100%; /* Assurez-vous que le champ occupe la largeur complète de son conteneur */
-  padding: 10px; /* Ajoutez un espace autour du texte dans le champ */
-  margin: 5px 0; /* Ajoutez un espacement en haut et en bas du champ */
-
-  /* Styles pour rendre le champ plus esthétique */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* Garantit que la largeur du champ inclut la bordure et le remplissage */
-
-  /* Ajoutez d'autres styles personnalisés selon vos besoins */
 }
 
-/* Styles pour la liste déroulante (select) */
-.center-input select {
+.error-message {
+  color: red;
+  margin-top: 5px;
   text-align: center;
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  appearance: none; /* Supprimez les styles de l'apparence par défaut du navigateur */
-  background: white; /* Couleur d'arrière-plan */
-  cursor: pointer; /* Changez le curseur au survol */
-}
-
-/* Ajoutez des styles supplémentaires au besoin, par exemple, pour mettre en surbrillance le champ lorsqu'il a le focus */
-.center-input select:focus {
-  text-align: center;
-  outline: none;
-  border-color: #007bff; /* Changez la couleur de la bordure lorsqu'il a le focus */
-}
-
-/* edit-popup.component.css */
-.error {
-  border: 1px solid red;
 }

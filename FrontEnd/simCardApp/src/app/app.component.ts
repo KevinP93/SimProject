@@ -39,16 +39,16 @@ export class AppComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     });
     this.popupService.showDetailPopup$.subscribe((data) => {
-      // Afficher la pop-up lorsque le service émet un événement
+      // Affichage la pop-up lorsque le service émet un événement
       this.isDetailPopupVisible = true;
     });
     this.popupService.closeDetailPopup$.subscribe(() => {
-      // Fermer la pop-up lorsque le service émet un événement de fermeture
+      // Fermeture de la pop-up lorsque le service émet un événement de fermeture
       this.isDetailPopupVisible = false;
     });
     this.simcardservice.modify$.subscribe((data) => {
       if (data) {
-        // data contient { sim, id }
+        
         this.modifier(data, data.iccId);
         
       console.log('Changements détectés dans le composant :', data);

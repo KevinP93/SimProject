@@ -32,7 +32,19 @@ export class SimCardService {
 
   updateSimCard(sim: any, id: string) {
     const url = `${this.API_URL}${this.ENDPOINT_SIMCARD}${id}`;
-    return this.httpClient.put(url, sim);
+    return this.httpClient.put(url, sim).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Erreur lors de la modification :', error);
+        let errorMessage = 'Erreur lors de la modification de la carte SIM.';
+        if (error.status === 500) {
+          errorMessage = 'Une erreur interne du serveur s\'est produite.';
+        } else if (error.status === 404) {
+          errorMessage = 'La carte SIM à modifier n\'a pas été trouvée.';
+        }
+  
+        return throwError(errorMessage);
+      })
+    );
   }
 
   deleteSimCard(simId: string){

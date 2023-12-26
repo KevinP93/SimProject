@@ -28,7 +28,9 @@
     
             <label>Nom du point d'accès:</label>
             <input [(ngModel)]="accessPointName" name="accessPointName" required pattern="^APN\d{4}$" class="center-input">
-    
+            <div *ngIf="simCardForm.get('accessPointName')?.hasError('pattern') && simCardForm.get('accessPointName')?.dirty" class="error-message">
+              Le nom du point d'accès doit suivre le format spécifié.
+            </div>
             <!-- <label>Adresse IP:</label>
             <input [(ngModel)]="ipAddress" name="ipAddress" required class="center-input">-->
             <label>Adresse IP:</label>
@@ -37,9 +39,6 @@
               class="center-input"
               formControlName="ipAddress"
             />
-            <div *ngIf="simCardForm.get('ipAddress')?.hasError('required')" class="error-message">
-              L'adresse IP est requise.
-            </div>
             <div *ngIf="simCardForm.get('ipAddress')?.hasError('ipAddressInvalidFormat')" class="error-message">
               Format d'adresse IP invalide.
             </div>
